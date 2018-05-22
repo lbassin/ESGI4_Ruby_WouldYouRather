@@ -3,14 +3,16 @@
     <%= @question.label %>
   </div>
   <div class="responses">
-    <form action="/vote/<%= @question.id %>" method="post">
-      <input type="hidden" name="response" value="1">
-      <button><%= @question.response_one %></button>
-    </form>
-    <form action="/vote/<%= @question.id %>" method="post">
-      <input type="hidden" name="response" value="2">
-      <button><%= @question.response_two %></button>
-    </form>
+    <%= form_with(local: true, url: votes_path, method: 'put') do |form| %>
+      <%= form.hidden_field :question_id, value: @question.id %>
+      <%= form.hidden_field :response_id, value: 1 %>
+      <%= form.submit @question.response_one %>
+    <% end %>
+    <%= form_with(local: true, url: votes_path, method: 'put') do |form| %>
+      <%= form.hidden_field :question_id, value: @question.id %>
+      <%= form.hidden_field :response_id, value: 2 %>
+      <%= form.submit @question.response_two %>
+    <% end %>
   </div>
 </div>
 
@@ -44,5 +46,4 @@
   .responses form:first-child {
     border-right: 1px solid red;
   }
-
 </style>
