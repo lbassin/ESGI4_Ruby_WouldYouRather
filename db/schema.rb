@@ -12,26 +12,29 @@
 
 ActiveRecord::Schema.define(version: 2018_05_04_101619) do
 
-  create_table "question", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string "label"
     t.string "response_one"
     t.string "response_two"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "user", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "vote", force: :cascade do |t|
-    t.string "label"
+  create_table "votes", force: :cascade do |t|
     t.integer "question_id"
-    t.integer "choice"
+    t.integer "response_one"
+    t.integer "response_two"
+    t.integer "response_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_vote_on_question_id"
+    t.index ["question_id"], name: "index_votes_on_question_id"
   end
 
 end

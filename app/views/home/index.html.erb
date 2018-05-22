@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="question">
+    <%= @question.label %>
+  </div>
+  <div class="responses">
+    <form action="/vote/<%= @question.id %>" method="post">
+      <input type="hidden" name="response" value="1">
+      <button><%= @question.response_one %></button>
+    </form>
+    <form action="/vote/<%= @question.id %>" method="post">
+      <input type="hidden" name="response" value="2">
+      <button><%= @question.response_two %></button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .container {
+    width: 70%;
+    margin: auto;
+  }
+
+  .question {
+    width: 100%;
+    line-height: 32px;
+    text-align: center;
+    background-color: bisque;
+  }
+
+  .responses {
+    width: 100%;
+    line-height: 250px;
+    height: 250px;
+    display: flex;
+    background-color: cadetblue;
+  }
+
+  .responses form {
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .responses form:first-child {
+    border-right: 1px solid red;
+  }
+
+</style>
