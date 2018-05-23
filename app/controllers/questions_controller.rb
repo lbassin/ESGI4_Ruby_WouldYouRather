@@ -1,5 +1,4 @@
-class QuestionsController < ActionController::Base
-
+class QuestionsController < ApplicationController
   def index
     @questions = Question.all
   end
@@ -37,6 +36,14 @@ class QuestionsController < ActionController::Base
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    puts "ok"
+    question = Question.find(params[:id])
+    question.destroy
+
+    redirect_to questions_url
   end
 
   private

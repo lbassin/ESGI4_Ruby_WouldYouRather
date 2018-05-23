@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'home#index'
-  resources :votes, only: [:update]
-  resources :questions, only: [:index, :edit, :new, :create, :show, :update] # TODO : Destroy
+  resource :votes, only: [:update]
+  resources :questions
 end

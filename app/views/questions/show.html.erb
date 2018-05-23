@@ -12,7 +12,7 @@
     <td><%= @vote.response_one %></td>
   </tr>
   <tr>
-    <td><%= @question.response_one %></td>
+    <td><%= @question.response_two %></td>
     <td><%= @vote.response_two %></td>
   </tr>
   <tr>
@@ -21,4 +21,6 @@
   </tr>
 </table>
 
+<%= link_to 'Supprimer', @question, method: :delete, data: {
+    confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
 <%= link_to 'Retour', questions_path %>
