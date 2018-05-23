@@ -9,7 +9,6 @@ class Card {
         this.card = this.element.children[0];
         this.mouseX = 0;
         this.mouseY = 0;
-        //this.element.onmouseenter  = EnableMouseMove;
         this.element.onmouseenter = this.EnableMouseMove.bind(this);
         this.element.onmouseleave = this.DisableMouseMove.bind(this);
         this.element.onmousemove = this.MouseMove.bind(this);
