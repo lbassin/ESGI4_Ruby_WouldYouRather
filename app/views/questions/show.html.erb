@@ -1,0 +1,24 @@
+<h1><%= @question.label %></h1>
+
+<ul>
+  <li><%= @question.response_one %></li>
+  <li><%= @question.response_two %></li>
+</ul>
+
+<h2>Résultats</h2>
+<table border="1">
+  <tr>
+    <td><%= @question.response_one %></td>
+    <td><%= @vote.response_one %></td>
+  </tr>
+  <tr>
+    <td><%= @question.response_one %></td>
+    <td><%= @vote.response_two %></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><%= @vote.response_total %></td>
+  </tr>
+</table>
+
+<%= link_to 'Retour', questions_path %>

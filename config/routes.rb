@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :votes, only: [:update]
-  resources :questions, only: [:index, :edit]
+  resources :questions, only: [:index, :edit, :new, :create, :show]
 end

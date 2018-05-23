@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2018_05_04_101619) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "question_id"
-    t.integer "response_one"
-    t.integer "response_two"
-    t.integer "response_total"
+    t.integer "response_one", default: 0
+    t.integer "response_two", default: 0
+    t.integer "response_total", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_votes_on_question_id"

@@ -1,10 +1,10 @@
 class Vote < ActiveRecord::Migration[5.2]
   def change
     create_table(:votes) do |t|
-      t.references(:question, foreign_key: true)
-      t.integer(:response_one)
-      t.integer(:response_two)
-      t.integer(:response_total)
+      t.references :question, foreign_key: true
+      t.integer :response_one, default: 0
+      t.integer :response_two, default: 0
+      t.integer :response_total, default: 0
       t.timestamps
     end
   end
