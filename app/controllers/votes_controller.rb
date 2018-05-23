@@ -1,9 +1,8 @@
 class VotesController < ApplicationController
 
   def index
-    question_count = Question.count + 1
-    id = rand(1...question_count)
-    @question = Question.find(id)
+    id = Question.ids.sample(1)
+    @question = Question.find_by_id(id)
   end
 
   def update
