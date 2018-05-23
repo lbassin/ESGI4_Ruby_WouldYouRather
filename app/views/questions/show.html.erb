@@ -9,18 +9,18 @@
 <table border="1">
   <tr>
     <td><%= @question.response_one %></td>
-    <td><%= @vote.response_one %></td>
+    <td></td>
   </tr>
   <tr>
     <td><%= @question.response_two %></td>
-    <td><%= @vote.response_two %></td>
+    <td></td>
   </tr>
   <tr>
     <td>Total</td>
-    <td><%= @vote.response_total %></td>
+    <td></td>
   </tr>
 </table>
 
-<%= link_to 'Supprimer', @question, method: :delete, data: {
-    confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
+<%= link_to 'Supprimer', @question, method: :delete,
+            data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
 <%= link_to 'Retour', questions_path %>
