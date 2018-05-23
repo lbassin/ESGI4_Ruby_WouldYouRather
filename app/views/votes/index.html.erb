@@ -6,14 +6,14 @@
   <div class="questions-block">
     <div class="question">
       <h2 class="title">
-        Lorem ipsum dolor sit amet ?
+        <%= @question.label %>
       </h2>
     </div>
     <div class="answers">
       <div class="answer-wrap">
         <div class="one answer">
           <div class="inner">
-            <h3 class="text">Réponse n°1</h3>
+            <h3 class="text"><%= @question.response_one %></h3>
           </div>
 
           <div class="result">
@@ -25,7 +25,7 @@
       <div class="answer-wrap">
         <div class="two answer">
           <div class="inner">
-            <h3 class="text">Réponse n°2</h3>
+            <h3 class="text"><%= @question.response_two %></h3>
           </div>
 
           <div class="result">
