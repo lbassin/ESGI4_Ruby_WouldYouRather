@@ -39,7 +39,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    puts "ok"
     question = Question.find(params[:id])
     question.destroy
 
