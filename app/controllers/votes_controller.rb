@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   def index
     ids = Question.ids
     if ids.count == 0
-      @question = Question.new
+      @question = Question.new(label: 'Aucune question trouvée')
     else
       @question = Question.find_by_id(ids.sample(1))
     end
