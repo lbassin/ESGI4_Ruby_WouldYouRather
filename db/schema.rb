@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2018_05_04_101619) do
     t.string "label"
     t.string "response_one"
     t.string "response_two"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user", force: :cascade do |t|
