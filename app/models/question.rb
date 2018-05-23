@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-  has_many :votes
-  has_many :responses
+  has_many :vote
+  has_many :response
 end
