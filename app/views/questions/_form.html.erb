@@ -1,0 +1,12 @@
+<%= form_with(model: @question, local: true) do |form| %>
+  <%= form.label :label, 'Question' %>
+  <%= form.text_field :label %>
+
+  <%= form.label :response_one, 'Réponse 1' %>
+  <%= form.text_field :response_one %>
+
+  <%= form.label :response_two, 'Réponse 2' %>
+  <%= form.text_field :response_two %>
+
+  <%= form.submit 'Enregistrer', class: 'btn btn-primary' %>
+<% end %>

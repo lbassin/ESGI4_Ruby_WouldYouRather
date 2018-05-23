@@ -1,0 +1,25 @@
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Label</th>
+    <th>Action</th>
+  </tr>
+  <% if @questions.any? %>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.label %></td>
+        <td>
+          <%= link_to 'Voir', question_path(1) %>
+          <%= link_to 'Editer', edit_question_path(1) %>
+        </td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="3">Il n'y a aucune question</td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Nouvelle question', new_question_path %>
