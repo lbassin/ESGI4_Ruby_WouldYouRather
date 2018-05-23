@@ -1,7 +1,9 @@
-class VotesController < ActionController::Base
+class VotesController < ApplicationController
 
   def index
-    render 'home/index'
+    question_count = Question.count + 1
+    id = rand(1...question_count)
+    @question = Question.find(id)
   end
 
   def update
