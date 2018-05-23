@@ -1,23 +1,19 @@
-<h1><%= @question.label %></h1>
-
-<ul>
-  <li><%= @question.response_one %></li>
-  <li><%= @question.response_two %></li>
-</ul>
+<h2>Question : </h2>
+<h3><%= @question.label %></h3>
 
 <h2>Résultats</h2>
 <table border="1">
-  <tr>
-    <td><%= @question.response_one %></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><%= @question.response_two %></td>
-    <td></td>
-  </tr>
+  <% if @question.responses.any? %>
+    <% @question.responses.each do |question| %>
+      <tr>
+        <td><%= question.label %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  <% end %>
   <tr>
     <td>Total</td>
-    <td></td>
+    <td><%= @question.votes.count %></td>
   </tr>
 </table>
 
