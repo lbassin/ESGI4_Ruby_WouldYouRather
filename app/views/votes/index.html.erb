@@ -13,10 +13,10 @@
       <div class="answer-wrap">
         <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
-          <%= form.hidden_field :response, value: 1 %>
+          <%= form.hidden_field :response, value: @question.responses.first.id %>
           <div class="one answer">
             <div class="inner">
-              <h3 class="text">Choix 1</h3>
+              <h3 class="text"><%= @question.responses.first.label %></h3>
               <button>Vote</button>
             </div>
 
@@ -30,10 +30,10 @@
       <div class="answer-wrap">
         <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
-          <%= form.hidden_field :response, value: 1 %>
+          <%= form.hidden_field :response, value: @question.responses.last.id %>
           <div class="two answer">
             <div class="inner">
-              <h3 class="text">Choix 2</h3>
+              <h3 class="text"><%= @question.responses.last.label %></h3>
               <button>Vote</button>
             </div>
 

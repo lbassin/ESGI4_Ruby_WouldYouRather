@@ -1,6 +1,11 @@
-<%= simple_form_for(@question) do |form| %>
-  <%= form.input :label, label: 'Question' %>
-  <%= form.association :response, label: 'Reponse 1' %>
+<%= form_for(@question) do |form| %>
+  <%= form.text_field :label %>
+  <%= form.fields_for :responses do |response| %>
+    <div>
+      <%= response.label :label %>
+      <%= response.text_field :label %>
+    </div>
+  <% end %>
 
   <%= form.submit 'Enregistrer' %>
 <% end %>
