@@ -4,16 +4,16 @@
 <h2>Résultats</h2>
 <table border="1">
   <% if @question.responses.any? %>
-    <% @question.responses.each do |question| %>
+    <% @question.responses.each do |response| %>
       <tr>
-        <td><%= question.label %></td>
-        <td></td>
+        <td><%= response.label %></td>
+        <td><%= @question.votes.where(response: response.id).count %></td>
       </tr>
     <% end %>
   <% end %>
   <tr>
     <td>Total</td>
-    <td></td>
+    <td><%= @question.votes.count %></td>
   </tr>
 </table>
 
