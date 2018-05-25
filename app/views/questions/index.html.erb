@@ -10,8 +10,8 @@
         <td><%= question.id %></td>
         <td><%= question.label %></td>
         <td>
-          <%= link_to 'Voir', question_path(1) %>
-          <%= link_to 'Editer', edit_question_path(1) %>
+          <%= link_to 'Voir', question_path(question.id) %>
+          <%= link_to 'Editer', edit_question_path(question.id) %>
         </td>
       </tr>
     <% end %>

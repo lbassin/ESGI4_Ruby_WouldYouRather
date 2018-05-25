@@ -11,29 +11,45 @@
     </div>
     <div class="answers">
       <div class="answer-wrap">
-        <div class="one answer">
-          <div class="inner">
-            <h3 class="text"><%= @question.response_one %></h3>
-          </div>
+        <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
+          <%= form.hidden_field :question_id, value: @question.id %>
+          <%= form.hidden_field :response, value: @question.responses.first.id %>
+          <div class="one answer">
+            <div class="inner">
+              <h3 class="text"><%= @question.responses.first.label %></h3>
+              <button>Vote</button>
+            </div>
 
-          <div class="result">
-            <h3 class="percentage" data-value="70">70%</h3>
-            <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
+            <div class="result">
+              <h3 class="percentage" data-value="70">70%</h3>
+              <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="answer-wrap">
-        <div class="two answer">
-          <div class="inner">
-            <h3 class="text"><%= @question.response_two %></h3>
-          </div>
+        <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
+          <%= form.hidden_field :question_id, value: @question.id %>
+          <%= form.hidden_field :response, value: @question.responses.last.id %>
+          <div class="two answer">
+            <div class="inner">
+              <h3 class="text"><%= @question.responses.last.label %></h3>
+              <button>Vote</button>
+            </div>
 
-          <div class="result">
-            <h3 class="percentage" data-value="70">70%</h3>
-            <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
+            <div class="result">
+              <h3 class="percentage" data-value="70">70%</h3>
+              <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    document.querySelector('.answer.one').addEventListener('ajax:success', function () {
+        console.log('salut2');
+    });
+</script>

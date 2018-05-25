@@ -1,25 +1,28 @@
 class VotesController < ApplicationController
 
   def index
-    id = Question.ids.sample(1)
-    @question = Question.find_by_id(id)
+    ids = Question.ids
+    if ids.count == 0
+      @question = Question.new(label: 'Aucune question trouvée')
+    else
+      @question = Question.find_by_id(ids.sample(1))
+    end
+    @vote = Vote.new
   end
 
-  def update
-    vote = Vote.find_by(question_id: params[:question_id])
-    unless vote
-      vote = Vote.new(question_id: params[:question_id], response_one: 0, response_two: 0, response_total: 0)
-    end
-
-    if params[:response_id] == "1"
-      vote.response_one += 1
+  def create
+    vote = Vote.new(question_params)
+    if vote.save
+      # Render json response
     else
-      vote.response_two += 1
+      redirect_to '/'
     end
-    vote.response_total += 1
-    vote.save
+  end
 
-    redirect_to '/'
+  private
+
+  def question_params
+    params.require(:vote).permit([:question_id, :response])
   end
 
 end

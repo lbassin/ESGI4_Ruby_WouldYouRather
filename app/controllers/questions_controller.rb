@@ -5,15 +5,11 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    2.times { @question.responses.build }
   end
 
   def show
     @question = Question.find(params[:id])
-
-    @vote = Vote.find_by(question_id: params[:id])
-    if @vote.nil?
-      @vote = Vote.new
-    end
   end
 
   def create
@@ -31,6 +27,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
+    puts question_params
     if @question.update(question_params)
       redirect_to @question
     else
@@ -48,7 +45,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit([:label, :response_one, :response_two])
+    params.require(:question).permit([:label, responses_attributes: [:id, :label]])
   end
 
 end

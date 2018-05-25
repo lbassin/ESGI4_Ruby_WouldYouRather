@@ -1,26 +1,22 @@
-<h1><%= @question.label %></h1>
-
-<ul>
-  <li><%= @question.response_one %></li>
-  <li><%= @question.response_two %></li>
-</ul>
+<h2>Question : </h2>
+<h3><%= @question.label %></h3>
 
 <h2>Résultats</h2>
 <table border="1">
-  <tr>
-    <td><%= @question.response_one %></td>
-    <td><%= @vote.response_one %></td>
-  </tr>
-  <tr>
-    <td><%= @question.response_two %></td>
-    <td><%= @vote.response_two %></td>
-  </tr>
+  <% if @question.responses.any? %>
+    <% @question.responses.each do |response| %>
+      <tr>
+        <td><%= response.label %></td>
+        <td><%= @question.votes.where(response: response.id).count %></td>
+      </tr>
+    <% end %>
+  <% end %>
   <tr>
     <td>Total</td>
-    <td><%= @vote.response_total %></td>
+    <td><%= @question.votes.count %></td>
   </tr>
 </table>
 
-<%= link_to 'Supprimer', @question, method: :delete, data: {
-    confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
+<%= link_to 'Supprimer', @question, method: :delete,
+            data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
 <%= link_to 'Retour', questions_path %>

@@ -1,8 +1,8 @@
-class Vote < ActiveRecord::Migration[5.2]
+class Response < ActiveRecord::Migration[5.2]
   def change
-    create_table(:votes) do |t|
+    create_table(:responses) do |t|
       t.references :question, foreign_key: {on_delete: :cascade}
-      t.integer :response
+      t.string(:label)
       t.timestamps
     end
   end
