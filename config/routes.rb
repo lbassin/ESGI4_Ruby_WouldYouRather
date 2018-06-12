@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'votes#index'
   resources :questions
   resources :votes, only: [:create]
+  resources :users
 end
