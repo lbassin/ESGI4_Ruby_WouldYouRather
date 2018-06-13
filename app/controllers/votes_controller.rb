@@ -12,10 +12,18 @@ class VotesController < ApplicationController
 
   def create
     vote = Vote.new(question_params)
-    if vote.save
-      # Render json response
-    else
-      redirect_to '/'
+    @result = Vote.where({question_id: params.require(:vote)[:question_id]}).group(:response).count
+    @total = Vote.where({question_id: params.require(:vote)[:question_id]}).count
+    puts 'coucou'
+    puts @result
+    respond_to do |format|
+      if vote.save
+        format.html { redirect_to '/' }
+        format.json { render :json => { :response1 => @result[1], :response2 => @result[2], :total => @total }, :status => 200 }
+      else
+        format.html { redirect_to '/' }
+        format.json { render :json => { :error => 'error' } }
+      end
     end
   end
 

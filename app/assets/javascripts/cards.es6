@@ -29,11 +29,10 @@ class Card {
             this.card.style.transform = `rotateY(0deg) rotateX(0deg)`
         }
     }
-
-    MouseMove(e) {
-        this.mouseX = (e.offsetX - this.card.clientWidth / 2) / 8;
-        this.mouseY = (e.offsetY - this.card.clientHeight / 2) / 8;
-        if (this.mousemove) {
+    MouseMove(e){
+        this.mouseX = (e.offsetX - this.card.clientWidth / 2 ) / 8;
+        this.mouseY = ((e.offsetY - this.card.clientHeight / 2 ) / 8) * -1;
+        if(this.mousemove){
             let rX = this.mouseX;
             let rY = this.mouseY;
             this.card.style.transform = `rotateY(${rX}deg) rotateX(${rY}deg)`
@@ -42,9 +41,14 @@ class Card {
 
     Click(e) {
         if (!cardSelected) {
-            this.card.classList.add('clicked');
-            cardSelected = true;
-            console.log('ok');
+            $('#vote-form').on('ajax:success', function(event, data, status, xhr) {
+                $('#reponse1').html( ((event.detail[0].response1 /  event.detail[0].total) * 100).toFixed(1) + '%' );
+                $('#reponse2').html( ((event.detail[0].response2 /  event.detail[0].total) * 100).toFixed(1) + '%' ) ;
+
+                $('.answer').addClass('clicked');
+
+                cardSelected = true;
+            });
         }
     }
 }

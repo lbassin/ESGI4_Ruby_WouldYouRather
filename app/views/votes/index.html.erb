@@ -11,7 +11,7 @@
     </div>
     <div class="answers">
       <div class="answer-wrap">
-        <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
+        <%= form_with(model: @vote, url: votes_url + ".json", id: 'vote-form', remote: true) do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
           <%= form.hidden_field :response, value: @question.responses.first.id %>
           <div class="one answer">
@@ -21,14 +21,14 @@
             </div>
 
             <div class="result">
-              <h3 class="percentage" data-value="70">70%</h3>
+              <h3 id="reponse1" class="percentage" data-value="70"></h3>
               <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
             </div>
           </div>
         <% end %>
       </div>
       <div class="answer-wrap">
-        <%= form_with(model: @vote, local: true, url: votes_url) do |form| %>
+        <%= form_with(model: @vote, url: votes_url) do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
           <%= form.hidden_field :response, value: @question.responses.last.id %>
           <div class="two answer">
@@ -38,7 +38,7 @@
             </div>
 
             <div class="result">
-              <h3 class="percentage" data-value="70">70%</h3>
+              <h3 id="reponse2" class="percentage" data-value="70"></h3>
               <h3 class="desc"> Think that <span>Réponse n°1</span></h3>
             </div>
           </div>
