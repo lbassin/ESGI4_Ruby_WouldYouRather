@@ -1,3 +1,182 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  &.questions{
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    background: #f3f9f0;
+    h1{
+      margin: 10px 20px;
+      padding-bottom: 10px;
+      border-bottom: solid 1px #2E2F30;
+      display: inline-block;
+      width: calc(100% - 40px);
+    }
+    .actions{
+      a{
+        float: right;
+        margin: 10px 20px;
+        padding:10px 15px;
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+      }
+      .action-new-question{
+        padding-left: 30px;
+        background: #006cc8;
+        &:before{
+          content:"+";
+          font-size: 34px;
+          font-weight: 600;
+          position: absolute;
+          top: 0;
+          left: 0;
+          line-height: normal;
+          padding-left: 10px;
+        }
+        &:hover{
+          background: #071caa;
+        }
+      }
+      .action-delete-question{
+        background: #c40005;
+        &:hover{
+          background: #b10005;
+
+        }
+      }
+
+      .action-default{
+        background: #2cc001;
+        &:hover{
+          background: #249801;
+
+        }
+      }
+    }
+    .table-list{
+      border:none;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+      margin-left: 20px;
+      margin-right: 20px;
+      box-sizing: border-box;
+      background: #ffffff;
+      -webkit-border-radius: 5px 5px 0 0;
+      -moz-border-radius: 5px 5px 0 0;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 3px 10px 0 rgba(0,0,0,0.5);
+      padding-bottom: 15px;
+      tr td {
+        text-align: center;
+      }
+      thead{
+        background: #504037;
+        border-radius: 5px 5px 0 0;
+        color: #ffffff;
+        tr{
+          th{
+            padding: 10px 0;
+          }
+        }
+      }
+
+      tbody{
+        padding-top: 15px;
+        tr{
+          td{
+            padding: 5px 0;
+            &:first-of-type{
+              font-weight: 600;
+            }
+            &:last-of-type, &:nth-last-of-type(2){
+              width: 10%;
+              max-width: 100px;
+            }
+            a{
+              padding: 8px 15px;
+              background: #006cc8;
+              border-style: solid;
+              border-width: 1px;
+              border-color: #0683c8;
+              border-radius: 6px;
+              margin: 10px 0;
+              display: inline-block;
+              text-decoration: none;
+              color: #ffffff;
+              &:hover{
+                background: #071caa;
+              }
+            }
+          }
+          &:first-of-type{
+            td{
+              padding: 15px 0 5px;
+            }
+          }
+        }
+      }
+    }
+
+    form{
+      font-size: 0;
+      input{
+        &[type="text"]{
+          background: none;
+          border: none;
+          border-bottom: solid 1px #2E2F30;
+          color: #2E2F30;
+          padding: 15px 5px;
+          width: 100%;
+          margin-bottom: 10px;
+          box-sizing: border-box;
+        }
+
+        &[type="submit"]{
+          border: none;
+          background: none;
+          background: #2E2F30;
+          border-radius : 5px;
+          padding: 10px 15px;
+          color: #ffffff;
+          cursor: pointer;
+        }
+      }
+      label{
+        width: 100%;
+        display: inline-block;
+        font-size: 2rem;
+      }
+      &.create_form{
+        display: block;
+        width: 100%;
+        margin: 20px auto;
+        .input_main_question{
+          font-size: 2rem;
+        }
+        .response_container{
+          .response{
+            margin-top: 20px;
+            width: 48%;
+            display: inline-block;
+            &:last-child{
+              margin-left: 4%;
+            }
+          }
+        }
+
+        input{
+          &[type="submit"]{
+            margin-top: 30px;
+            width: 300px;
+            float: right;
+          }
+        }
+      }
+    }
+
+  }
+}

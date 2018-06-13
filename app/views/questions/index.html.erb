@@ -1,20 +1,34 @@
-<table border="1">
-  <tr>
-    <th>ID</th>
-    <th>Label</th>
-    <th>Action</th>
-  </tr>
+<% content_for :body_class, "questions" %>
+
+<h1>Liste des questions</h1>
+<div class="actions">
+  <%= link_to 'Nouvelle question', new_question_path, class: "action-new-question" %>
+  <div class="clear"></div>
+</div>
+<table class="table-list" border="0" cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Label</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
   <% if @questions.any? %>
+    <tbody>
     <% @questions.each do |question| %>
+
       <tr>
         <td><%= question.id %></td>
         <td><%= question.label %></td>
         <td>
           <%= link_to 'Voir', question_path(question.id) %>
+        </td>
+        <td>
           <%= link_to 'Editer', edit_question_path(question.id) %>
         </td>
       </tr>
     <% end %>
+    </tbody>
   <% else %>
     <tr>
       <td colspan="3">Il n'y a aucune question</td>
@@ -22,4 +36,3 @@
   <% end %>
 </table>
 
-<%= link_to 'Nouvelle question', new_question_path %>

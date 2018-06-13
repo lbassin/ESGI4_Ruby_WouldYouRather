@@ -12,6 +12,10 @@ html, body{
   padding: 0;
   margin: 0;
 }
+
+.clear{
+  clear:both;
+}
 body{
   &.home{
     .bg{
@@ -175,3 +179,6 @@ body{
     }
   }
 }
+
+
+@import "questions";
