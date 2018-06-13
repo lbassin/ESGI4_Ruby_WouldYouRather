@@ -14,8 +14,7 @@ class VotesController < ApplicationController
     vote = Vote.new(question_params)
     @result = Vote.where({question_id: params.require(:vote)[:question_id]}).group(:response).count
     @total = Vote.where({question_id: params.require(:vote)[:question_id]}).count
-    puts 'coucou'
-    puts @result
+
     respond_to do |format|
       if vote.save
         format.html { redirect_to '/' }
