@@ -1,6 +1,20 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def login
+  end
+
+  def auth
+    user = User.find_by(username: params[:username])
+
+    if user and user.password == params[:password]
+      redirect_to "/questions"
+    else
+      flash[:notice] = "Wrong credentials"
+      redirect_to "/users/login"
+    end
+  end
+
   def index
     @users = User.all
   end
