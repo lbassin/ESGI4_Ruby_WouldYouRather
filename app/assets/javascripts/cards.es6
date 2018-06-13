@@ -41,7 +41,7 @@ class Card {
 
     Click(e) {
         if (!cardSelected) {
-            $('#vote-form').on('ajax:success', function(event, data, status, xhr) {
+            $('#vote-form').on('ajax:success', function(event) {
                 $('#reponse1').html( ((event.detail[0].response1 /  event.detail[0].total) * 100).toFixed(1) + '%' );
                 $('#reponse2').html( ((event.detail[0].response2 /  event.detail[0].total) * 100).toFixed(1) + '%' ) ;
 
@@ -58,5 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((elem) => {
             Cards.push(new Card(elem));
         });
+
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.addEventListener('click', (event) => {
+            console.log(event.target.parentNode.submit());
+        })
+    });
 });
+
 
