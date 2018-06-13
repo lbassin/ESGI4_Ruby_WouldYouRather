@@ -1,15 +1,31 @@
-<h2>Question : </h2>
-<h3><%= @question.label %></h3>
+<% content_for :body_class, "questions" %>
 
-<h2>Résultats</h2>
-<table border="1">
+<h1><%= @question.label %></h1>
+<div class="actions">
+  <%= link_to 'Retour', questions_path, class: "action-default" %>
+  <%= link_to 'Supprimer', @question, method: :delete, class: "action-delete-question",
+              data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
+
+  <div class="clear"></div>
+</div>
+<table class="table-list" border="0" cellspacing="0" cellpadding="0">
+  <thead>
+  <tr>
+    <th>Réponse</th>
+    <th>Compteur</th>
+
+  </tr>
+  </thead>
   <% if @question.responses.any? %>
+    <tbody>
     <% @question.responses.each do |response| %>
+
       <tr>
         <td><%= response.label %></td>
         <td><%= @question.votes.where(response: response.id).count %></td>
       </tr>
     <% end %>
+    </tbody>
   <% end %>
   <tr>
     <td>Total</td>
@@ -17,6 +33,4 @@
   </tr>
 </table>
 
-<%= link_to 'Supprimer', @question, method: :delete,
-            data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
-<%= link_to 'Retour', questions_path %>
+

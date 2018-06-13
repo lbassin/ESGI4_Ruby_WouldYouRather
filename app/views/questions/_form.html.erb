@@ -1,12 +1,17 @@
-<%= form_for(@question) do |form| %>
-  Question :
-  <%= form.text_field :label %>
+<%= form_for @question, :html => {class: 'create_form'} do |form| %>
+  <% count = 1 %>
+  <%= form.text_field :label, :class => "input_main_question",:placeholder => "Entrer une question" %>
+  <div class="response_container">
   <%= form.fields_for :responses do |response| %>
-    <div>
-      Réponse :
+
+
+    <div class="response">
+      <%= response.label :label, "Réponse n° #{count}" %>
       <%= response.text_field :label %>
+      <% count +=1 %>
     </div>
   <% end %>
-
+  </div>
   <%= form.submit 'Enregistrer' %>
+  <div class="clear"></div>
 <% end %>
