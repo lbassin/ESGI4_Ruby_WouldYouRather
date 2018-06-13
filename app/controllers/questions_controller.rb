@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  include UsersHelper
+  before_action :require_login
+
   def index
     @questions = Question.all
   end
@@ -47,5 +50,4 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit([:label, responses_attributes: [:id, :label]])
   end
-
 end

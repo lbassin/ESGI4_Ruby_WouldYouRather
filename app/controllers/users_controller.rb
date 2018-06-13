@@ -1,13 +1,19 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: [:login, :auth]
 
   def login
+  end
+
+  def logout
+    session[:user_id] = nil
+    redirect_to users_login_path
   end
 
   def auth
     user = User.find_by(username: params[:username])
 
     if user and user.password == params[:password]
+      session[:user_id] = user.id
       redirect_to "/questions"
     else
       flash[:notice] = "Wrong credentials"
@@ -60,5 +66,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def require_login
+    unless session[:user_id]
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to users_login_path
+    end
   end
 end
