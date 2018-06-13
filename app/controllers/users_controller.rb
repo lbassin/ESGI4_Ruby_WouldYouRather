@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:login, :auth]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def login
   end
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
 
     if user and user.password == params[:password]
       session[:user_id] = user.id
-      redirect_to "/questions"
+      redirect_to dashboard_url
     else
       flash[:notice] = "Wrong credentials"
       redirect_to "/users/login"
