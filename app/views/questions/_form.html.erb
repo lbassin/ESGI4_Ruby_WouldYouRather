@@ -1,8 +1,9 @@
 <%= form_for(@question) do |form| %>
+  Question :
   <%= form.text_field :label %>
   <%= form.fields_for :responses do |response| %>
     <div>
-      <%= response.label :label %>
+      Réponse :
       <%= response.text_field :label %>
     </div>
   <% end %>
