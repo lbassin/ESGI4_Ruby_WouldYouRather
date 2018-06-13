@@ -4,7 +4,6 @@ class VotesController < ApplicationController
     ids = Question.ids
     if ids.count == 0
       @question = Question.new(label: 'Aucune question trouvée')
-      2.times { @question.responses.build }
     else
       @question = Question.find_by_id(ids.sample(1))
     end

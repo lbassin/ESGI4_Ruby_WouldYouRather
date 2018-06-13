@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    2.times { @question.responses.build }
   end
 
   def show
