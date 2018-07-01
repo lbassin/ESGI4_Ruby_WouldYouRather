@@ -92,7 +92,7 @@ body{
             &:first-of-type{
               font-weight: 600;
             }
-            &:last-of-type, &:nth-last-of-type(2){
+            &.td-action{
               width: 10%;
               max-width: 100px;
             }
@@ -124,7 +124,7 @@ body{
     form{
       font-size: 0;
       input{
-        &[type="text"]{
+        &[type="text"], &[type="password"]{
           background: none;
           border: none;
           border-bottom: solid 1px #2E2F30;
@@ -152,7 +152,7 @@ body{
       }
       &.create_form{
         display: block;
-        width: 100%;
+        width: 40%;
         margin: 20px auto;
         .input_main_question{
           font-size: 2rem;
