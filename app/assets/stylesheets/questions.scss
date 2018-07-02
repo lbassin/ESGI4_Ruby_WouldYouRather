@@ -15,6 +15,7 @@ body{
       width: calc(100% - 40px);
     }
     .actions{
+      position: relative;
       a{
         float: right;
         margin: 10px 20px;
@@ -22,6 +23,13 @@ body{
         position: relative;
         color: #fff;
         text-decoration: none;
+      }
+      .action-back{
+        float:left;
+
+        &:before{
+          content: "" !important;
+        }
       }
       .action-new-question{
         padding-left: 30px;
@@ -162,7 +170,7 @@ body{
             margin-top: 20px;
             width: 48%;
             display: inline-block;
-            &:last-child{
+            &:nth-child(3){
               margin-left: 4%;
             }
           }
@@ -171,7 +179,7 @@ body{
         input{
           &[type="submit"]{
             margin-top: 30px;
-            width: 300px;
+            width: 45%;
             float: right;
           }
         }
@@ -179,4 +187,13 @@ body{
     }
 
   }
+}
+
+#notice {
+  display: block;
+  position: absolute;
+  left: 25vw;
+  right: 25vw;
+  text-align: center;
+  color: green;
 }

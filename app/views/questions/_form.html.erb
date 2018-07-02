@@ -3,8 +3,6 @@
   <%= form.text_field :label, :class => "input_main_question",:placeholder => "Entrer une question" %>
   <div class="response_container">
   <%= form.fields_for :responses do |response| %>
-
-
     <div class="response">
       <%= response.label :label, "Réponse n° #{count}" %>
       <%= response.text_field :label %>

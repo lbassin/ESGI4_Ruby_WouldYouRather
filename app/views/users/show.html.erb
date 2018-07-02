@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
 <% content_for :body_class, "questions" %>
 
 <h1><%= @user.username %></h1>
 <div class="actions">
+  <p id="notice"><%= notice %></p>
   <%= link_to 'Retour', users_path, class: "action-default" %>
   <%= link_to 'Supprimer', @user, method: :delete, class: "action-delete-question",
               data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>

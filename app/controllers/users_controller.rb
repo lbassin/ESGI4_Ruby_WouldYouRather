@@ -47,7 +47,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    data = user_params
+    if data[:password].empty?
+      data[:password] = @user.password
+    end
+
+    if @user.update(data)
       redirect_to @user, notice: 'User was successfully updated.'
     else
       render :edit

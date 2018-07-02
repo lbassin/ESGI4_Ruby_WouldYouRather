@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
 <% content_for :body_class, "questions" %>
 
 <h1>Liste des utilisateurs</h1>
 <div class="actions">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Retour', dashboard_path, class: "action-default" %>
   <%= link_to 'Nouvel Utilisateur', new_user_path, class: "action-new-question" %>
   <div class="clear"></div>
 </div>
