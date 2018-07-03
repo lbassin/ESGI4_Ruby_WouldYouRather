@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <%= form_for @question, :html => {class: 'create_form'} do |form| %>
   <% count = 1 %>
   <%= form.text_field :label, :class => "input_main_question",:placeholder => "Entrer une question" %>

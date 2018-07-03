@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   include UsersHelper
-  before_action :require_login
+  before_action :require_login, :except => [:create, :new]
 
   def index
     @questions = Question.all
@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to new_question_path, notice: 'Question was submited and will be check soon.'
     else
       render 'new'
     end

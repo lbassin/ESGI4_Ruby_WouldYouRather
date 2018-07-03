@@ -1,7 +1,8 @@
 class VotesController < ApplicationController
 
   def index
-    ids = Question.ids
+    ids = Question.where(enabled: true).ids
+
     if ids.count == 0
       @question = Question.new(label: 'Aucune question trouvée')
     else
