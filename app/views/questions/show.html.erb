@@ -13,7 +13,6 @@
   <tr>
     <th>Réponse</th>
     <th>Compteur</th>
-
   </tr>
   </thead>
   <% if @question.responses.any? %>
@@ -32,5 +31,13 @@
     <td><%= @question.votes.count %></td>
   </tr>
 </table>
-
+<% unless @question.enabled %>
+  <div class="enabled-waiting">
+    Question en attente de modération, une validation est necessaire pour l'ajouter à l'application
+    <%= form_for @question do |form| %>
+      <%= form.hidden_field :enabled, :value => true %>
+      <%= form.submit "Activer" %>
+    <% end %>
+  </div>
+<% end %>
 
