@@ -12,25 +12,28 @@ class VotesController < ApplicationController
   end
 
   def create
-    vote = Vote.new(question_params)
-    @result = Vote.where({question_id: params.require(:vote)[:question_id]}).group(:response).count
-    @total = Vote.where({question_id: params.require(:vote)[:question_id]}).count
+    Vote.new(question_params).save!
+
+    @question = Question.find(params.require(:vote)[:question_id])
+    @results = Array.new()
+    @total = 0
+
+    @question.responses.each do |response|
+      @count = response.votes.count
+      @results.push @count
+      @total += @count
+    end
 
     respond_to do |format|
-      if vote.save
-        format.html { redirect_to '/' }
-        format.json { render :json => { :response1 => @result[1], :response2 => @result[2], :total => @total }, :status => 200 }
-      else
-        format.html { redirect_to '/' }
-        format.json { render :json => { :error => 'error' } }
-      end
+      format.html {redirect_to '/'}
+      format.json {render :json => {:results => @results, :total => @total}, :status => 200}
     end
   end
 
   private
 
   def question_params
-    params.require(:vote).permit([:question_id, :response])
+    params.require(:vote).permit([:response_id])
   end
 
 end

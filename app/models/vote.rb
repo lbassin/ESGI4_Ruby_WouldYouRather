@@ -1,4 +1,4 @@
 class Vote < ApplicationRecord
-  belongs_to :question, optional: false
+  belongs_to :response
 
 end

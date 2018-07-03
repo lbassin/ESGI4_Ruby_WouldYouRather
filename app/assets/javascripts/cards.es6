@@ -42,8 +42,16 @@ class Card {
     Click(e) {
         if (!cardSelected) {
             $('.vote-form').on('ajax:success', function(event) {
-                $('#reponse1').html( ((event.detail[0].response1 /  event.detail[0].total) * 100).toFixed(1) + '%' );
-                $('#reponse2').html( ((event.detail[0].response2 /  event.detail[0].total) * 100).toFixed(1) + '%' ) ;
+                let data = event.detail[0];
+                if (data.total === 0) {
+                    data.total = 1;
+                }
+
+                let response1 = ((data.results[0] /  data.total) * 100).toFixed(1);
+                let response2 = ((data.results[1] /  data.total) * 100).toFixed(1);
+
+                $('#reponse1').html( response1 + '%' );
+                $('#reponse2').html( response2 + '%' ) ;
 
                 $('.answer').addClass('clicked');
 

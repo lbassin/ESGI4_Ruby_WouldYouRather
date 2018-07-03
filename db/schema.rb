@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_203505) do
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "enabled"
+    t.boolean "enabled", default: false
   end
 
   create_table "responses", force: :cascade do |t|
@@ -56,11 +56,10 @@ ActiveRecord::Schema.define(version: 2018_07_03_203505) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "response"
+    t.integer "response_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_votes_on_question_id"
+    t.index ["response_id"], name: "index_votes_on_response_id"
   end
 
 end

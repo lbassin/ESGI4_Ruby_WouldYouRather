@@ -12,6 +12,11 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+
+    @totalVotes = 0
+    @question.responses.each do |response|
+      @totalVotes += response.votes.count
+    end
   end
 
   def create

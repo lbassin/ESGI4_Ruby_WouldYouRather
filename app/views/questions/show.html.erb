@@ -18,17 +18,16 @@
   <% if @question.responses.any? %>
     <tbody>
     <% @question.responses.each do |response| %>
-
       <tr>
         <td><%= response.label %></td>
-        <td><%= @question.votes.where(response: response.id).count %></td>
+        <td><%= response.votes.count %></td>
       </tr>
     <% end %>
     </tbody>
   <% end %>
   <tr>
     <td>Total</td>
-    <td><%= @question.votes.count %></td>
+    <td><%= @totalVotes %></td>
   </tr>
 </table>
 <% unless @question.enabled %>

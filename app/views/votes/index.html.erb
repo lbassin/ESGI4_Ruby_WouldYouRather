@@ -13,7 +13,7 @@
       <div class="answer-wrap">
         <%= form_with(model: @vote, url: votes_url + ".json", class: 'vote-form') do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
-          <%= form.hidden_field :response, value: @question.responses.first.id %>
+          <%= form.hidden_field :response_id, value: @question.responses.first.id %>
           <div class="one answer">
             <div class="inner">
               <h3 class="text"><%= @question.responses.first.label %></h3>
@@ -30,7 +30,7 @@
       <div class="answer-wrap">
         <%= form_with(model: @vote, url: votes_url + ".json", class: 'vote-form') do |form| %>
           <%= form.hidden_field :question_id, value: @question.id %>
-          <%= form.hidden_field :response, value: @question.responses.last.id %>
+          <%= form.hidden_field :response_id, value: @question.responses.last.id %>
           <div class="two answer">
             <div class="inner">
               <h3 class="text"><%= @question.responses.last.label %></h3>
