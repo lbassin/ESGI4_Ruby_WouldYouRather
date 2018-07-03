@@ -6,7 +6,6 @@
   <%= link_to 'Retour', users_path, class: "action-default" %>
   <%= link_to 'Supprimer', @user, method: :delete, class: "action-delete-question",
               data: {confirm: 'Êtes-vous sûr(e) de vouloir supprimer cette question ?'} %>
-
   <div class="clear"></div>
 </div>
 <table class="table-list" border="0" cellspacing="0" cellpadding="0">
@@ -14,12 +13,18 @@
   <tr>
     <th>ID</th>
     <th>Username</th>
+    <th>Photo</th>
   </tr>
   </thead>
   <tbody>
   <tr>
     <td><%= @user.id %></td>
     <td><%= @user.username %></td>
+    <% if @user.avatar.attached? %>
+      <td><%= image_tag @user.avatar, height: 120, alt: "Avatar" %></td>
+    <% else %>
+      <td><img src="https://dummyimage.com/120x120" alt="Default avatar"></td>
+    <% end %>
   </tr>
   </tbody>
 </table>

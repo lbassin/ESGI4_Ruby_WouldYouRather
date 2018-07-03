@@ -2,6 +2,9 @@
   <%= form.text_field :username, :class => "input_main_question",:placeholder => "Username" %>
   <%= form.password_field :password, :class => "input_main_question",:placeholder => "Password" %>
 
+  <%= form.label :avatar, "Avatar" %>
+  <%= form.file_field :avatar, multiple: false %>
+
   <%= form.submit 'Enregistrer' %>
   <div class="clear"></div>
 <% end %>

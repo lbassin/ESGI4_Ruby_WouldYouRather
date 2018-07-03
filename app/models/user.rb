@@ -2,6 +2,7 @@ require 'bcrypt'
 
 class User < ApplicationRecord
   include BCrypt
+  has_one_attached :avatar
 
   def password
     @password ||= Password.new(password_hash)
