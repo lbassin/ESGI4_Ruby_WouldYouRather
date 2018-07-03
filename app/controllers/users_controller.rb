@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def update
     data = user_params
     if data[:password].empty?
-      data.delete(:password)
+      data.delete :password
     end
 
     if @user.update(data)
