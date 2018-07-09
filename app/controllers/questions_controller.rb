@@ -22,7 +22,12 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_back fallback_location: new_question_path, notice: 'Question was submited and will be check soon.'
+
+      if session[:user_id]
+        redirect_to questions_url, notice: 'Question was submited and should be enabled.'
+      else
+        redirect_to new_question_url, notice: 'Question was submited and will be check soon.'
+      end
     else
       render 'new'
     end
@@ -34,7 +39,6 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    puts question_params
     if @question.update(question_params)
       redirect_to @question
     else

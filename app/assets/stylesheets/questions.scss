@@ -2,40 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
-  &.questions{
+body {
+  &.questions {
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
     background: #f3f9f0;
-    h1{
+    h1 {
       margin: 10px 20px;
       padding-bottom: 10px;
       border-bottom: solid 1px #2E2F30;
       display: inline-block;
       width: calc(100% - 40px);
     }
-    .actions{
+    .actions {
       position: relative;
-      a{
+      a {
         float: right;
         margin: 10px 20px;
-        padding:10px 15px;
+        padding: 10px 15px;
         position: relative;
         color: #fff;
         text-decoration: none;
       }
-      .action-back{
-        float:left;
+      .action-back {
+        float: left;
 
-        &:before{
+        &:before {
           content: "" !important;
         }
       }
-      .action-new-question{
+      .action-new-question {
         padding-left: 30px;
         background: #006cc8;
-        &:before{
-          content:"+";
+        &:before {
+          content: "+";
           font-size: 34px;
           font-weight: 600;
           position: absolute;
@@ -44,28 +44,28 @@ body{
           line-height: normal;
           padding-left: 10px;
         }
-        &:hover{
+        &:hover {
           background: #071caa;
         }
       }
-      .action-delete-question{
+      .action-delete-question {
         background: #c40005;
-        &:hover{
+        &:hover {
           background: #b10005;
 
         }
       }
 
-      .action-default{
+      .action-default {
         background: #2cc001;
-        &:hover{
+        &:hover {
           background: #249801;
 
         }
       }
     }
-    .table-list{
-      border:none;
+    .table-list {
+      border: none;
       width: calc(100% - 40px);
       margin: 0 auto;
       margin-left: 20px;
@@ -76,35 +76,35 @@ body{
       -moz-border-radius: 5px 5px 0 0;
       border-radius: 5px 5px 0 0;
       overflow: hidden;
-      box-shadow: 0 3px 10px 0 rgba(0,0,0,0.5);
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
       padding-bottom: 15px;
       tr td {
         text-align: center;
       }
-      thead{
+      thead {
         background: #504037;
         border-radius: 5px 5px 0 0;
         color: #ffffff;
-        tr{
-          th{
+        tr {
+          th {
             padding: 10px 0;
           }
         }
       }
 
-      tbody{
+      tbody {
         padding-top: 15px;
-        tr{
-          td{
+        tr {
+          td {
             padding: 5px 0;
-            &:first-of-type{
+            &:first-of-type {
               font-weight: 600;
             }
-            &.td-action{
+            &.td-action {
               width: 10%;
               max-width: 100px;
             }
-            a{
+            a {
               padding: 8px 15px;
               background: #006cc8;
               border-style: solid;
@@ -115,13 +115,13 @@ body{
               display: inline-block;
               text-decoration: none;
               color: #ffffff;
-              &:hover{
+              &:hover {
                 background: #071caa;
               }
             }
           }
-          &:first-of-type{
-            td{
+          &:first-of-type {
+            td {
               padding: 15px 0 5px;
             }
           }
@@ -129,10 +129,10 @@ body{
       }
     }
 
-    form{
+    form {
       font-size: 0;
-      input{
-        &[type="text"], &[type="password"]{
+      input {
+        &[type="text"], &[type="password"] {
           background: none;
           border: none;
           border-bottom: solid 1px #2E2F30;
@@ -143,41 +143,41 @@ body{
           box-sizing: border-box;
         }
 
-        &[type="submit"]{
+        &[type="submit"] {
           border: none;
           background: none;
           background: #2E2F30;
-          border-radius : 5px;
+          border-radius: 5px;
           padding: 10px 15px;
           color: #ffffff;
           cursor: pointer;
         }
       }
-      label{
+      label {
         width: 100%;
         display: inline-block;
         font-size: 2rem;
       }
-      &.create_form{
+      &.create_form {
         display: block;
         width: 40%;
         margin: 20px auto;
-        .input_main_question{
+        .input_main_question {
           font-size: 2rem;
         }
-        .response_container{
-          .response{
+        .response_container {
+          .response {
             margin-top: 20px;
             width: 48%;
             display: inline-block;
-            &:nth-child(2), &:nth-child(3){
+            &:nth-child(2), &:nth-child(3) {
               margin-left: 4%;
             }
           }
         }
 
-        input{
-          &[type="submit"]{
+        input {
+          &[type="submit"] {
             margin-top: 30px;
             width: 45%;
             float: right;
@@ -198,7 +198,7 @@ body{
   color: green;
 }
 
-.dashboard-actions{
+.dashboard-actions {
   width: 45%;
   max-width: 450px;
   margin: auto;
@@ -206,22 +206,19 @@ body{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
 
-  div {
-    border: none;
-    background: none;
-    background: #2E2F30;
-    border-radius : 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    min-width: 100px;
-    text-align: center;
+a.button {
+  border: none;
+  background: none;
+  background: #2E2F30;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
 
-    a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-  }
-
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
 }
