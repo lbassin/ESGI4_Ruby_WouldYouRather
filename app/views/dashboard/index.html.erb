@@ -1,6 +1,14 @@
+<% content_for :body_class, "questions" %>
+
 <h1>Dashboard</h1>
-<ul>
-  <li><%= link_to "Users", users_path %></li>
-  <li><%= link_to "Questions", questions_path %></li>
-  <li><%= link_to "Deconnexion", users_logout_path %></li>
-</ul>
+<div class="dashboard-actions">
+  <div>
+    <%= link_to "Users", users_path %>
+  </div>
+  <div>
+    <%= link_to "Questions", questions_path %>
+  </div>
+  <div>
+    <%= link_to "Deconnexion", users_logout_path %>
+  </div>
+</div>

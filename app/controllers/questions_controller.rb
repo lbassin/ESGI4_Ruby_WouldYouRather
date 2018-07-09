@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to new_question_path, notice: 'Question was submited and will be check soon.'
+      redirect_back fallback_location: new_question_path, notice: 'Question was submited and will be check soon.'
     else
       render 'new'
     end

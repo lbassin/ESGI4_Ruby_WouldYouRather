@@ -1,8 +1,12 @@
+<% content_for :body_class, "questions" %>
+
+<h1>Login</h1>
+
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= form_tag do %>
+<%= form_tag users_login_path, class: 'create_form' do %>
   <%= label_tag(:username, "Username:") %>
   <%= text_field_tag(:username) %>
 
