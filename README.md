@@ -1,24 +1,15 @@
-# README
+# Installation
+rails db:migrate
+rails db:seed
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Features
+CRUD Question
+CRUD User
+Vote d'une question
+Propisition et validation d'une question
+Upload avatar pour user
+Dashboard
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Routes
+/ : Home pour vote
+/dashboard : Route dashboard
